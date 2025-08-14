@@ -47,6 +47,9 @@ export default function ProductForm() {
       [name]: name === "price" || name === "categoryId" ? Number(value) : value,
     }));
   };
+
+
+
   const handleImagePreview = (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -77,6 +80,25 @@ export default function ProductForm() {
       console.error("Create failed:", error);
     }
   };
+
+    () => {
+    const [filterText, setFilterText] = useState('');
+    const [resetPaginationToggle, setResetPaginationToggle] =useState(false);
+    const filteredItems = data.content.filter(item => item.name && item.name.toLowerCase().includes(filterText.toLowerCase()));
+    const subHeaderComponentMemo = useMemo(()=>{
+      const handleClear = () => {
+        if(filterText){
+          setResetPaginationToggle(!resetPaginationToggle);
+          setFilterText('');
+        }
+      };
+      return <FilterComponent on Filter ={
+        e => setFilterText(e.target.value)} 
+        onClear = {handleClear}
+        filterText = {filterText}
+     />;
+    }, [filterText, resetPaginationToggle]);
+  }
 
   return (
     <div className="m-10">

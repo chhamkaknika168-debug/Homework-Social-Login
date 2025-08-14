@@ -9,12 +9,14 @@ const productApi = apiSlice.injectEndpoints({
         url: "/products",
         method: "GET",
       }),
+      providesTags: ["product"]
     }),
     getProductById: build.query({
-      query: (id) => ({
-        url: `/products/${id}`,
+      query: (uuid) => ({
+        url: `/products/${uuid}`,
         method: "GET",
       }),
+      providesTags: ["product"]
     }),
     createProduct: build.mutation({
       query: (productData) => ({
@@ -22,20 +24,22 @@ const productApi = apiSlice.injectEndpoints({
         method: "POST",
         body: productData,
       }),
+      invalidatesTags: ["product"]
     }),
     deleteProduct: build.mutation({
-      query: (id) => ({
-        url: `/products/${id}`,
+      query: (uuid) => ({
+        url: `/products/${uuid}`,
         method: "DELETE",
       }),
+      invalidatesTags: ["product"]
     }),
     updateProduct: build.mutation({
-      query: ({ id, ...patch }) => ({
-        url: `/products/${id}`,
+      query: ({ uuid, updateProduct}) => ({
+        url: `/products/${uuid}`,
         method: "PUT",
-        body: patch,
+        body: updateProduct,
       }),
-      invalidatesTags: ["Products"], // so the product list refreshes after update
+      invalidatesTags: ["Product"], // so the product list refreshes after update
     }),
   }), 
 });

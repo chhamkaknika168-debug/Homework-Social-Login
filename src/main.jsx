@@ -22,7 +22,7 @@ createRoot(document.getElementById("root")).render(
           <Route element={<RootLayout />}>
             <Route path="/" element={<App />} />
             <Route path="/products" element={<Products />} />
-            <Route path="/add-product" element={<ProductForm2 />} />
+            <Route path="/Create Product" element={<ProductForm2 />} />
             <Route path="/edit/:id" element={<ProductEditForm />} />
 
             <Route path="/products/:id" element={<ProductDetail />} />

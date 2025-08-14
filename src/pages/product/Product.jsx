@@ -12,6 +12,12 @@ export default function Product() {
 
   return (
     <>
+      <SEO
+    title="KAKNIKA | Product"
+    description="KAKNIKA is the best platform for ecommerce  order product"
+    image={"https://opengraph.b-cdn.net/production/images/eaef5247-b891-4c2b-815f-daf67df4981a.jpg?token=D5EzUzgekTCw12CF1lgIw2gZEyp1aRML6rbrBC-wayk&height=675&width=1200&expires=33291158276"}
+    keywords={"ecommer, product"}
+    />
       <main className="max-w-screen-xl mx-auto">
         <NavLink
           role="menuitem"
