@@ -1,7 +1,7 @@
 import React from "react";
 import NavbarBasic from "./Navbar";
 import { Outlet } from "react-router";
-import Footer from "./Footer";
+import Footer from "./footer.jsx";
 
 export default function RootLayout() {
   return (
